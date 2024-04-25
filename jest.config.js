@@ -1,9 +1,10 @@
-/** @type {import('jest').Config} */
-const config = {
-  verbose: true,
-  transform: {
-    '^.+\\.jsx?$': 'vite-jest',
+export default {
+  // Jest configuration options...
+  // For example:
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+  ],
 };
-
-export default config;
