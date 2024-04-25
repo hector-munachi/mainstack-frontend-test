@@ -2,7 +2,7 @@
 // TransactionsComponent.test.jsx
 
 import { render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; // Import Jest DOM extension matchers
+import '@testing-library/jest-dom'; // Import Jest DOM extension matchers
 import TransactionsComponent from '../src/components/TransactionsComponent';
 
 // Mock the fetch function to simulate API calls

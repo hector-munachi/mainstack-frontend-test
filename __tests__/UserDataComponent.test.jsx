@@ -2,7 +2,7 @@
 // UserDataComponent.test.jsx
 
 import { render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; // Import Jest DOM extension matchers
+import '@testing-library/jest-dom'; // Import Jest DOM extension matchers
 import UserDataComponent from '../src/components/UserDataComponent';
 
 // Mock the fetch function to simulate API calls
