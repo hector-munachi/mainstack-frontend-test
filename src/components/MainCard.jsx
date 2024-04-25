@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import WalletDataComponent from './WalletDataComponent';
 
 // Graph Component
 const Graph = () => (
@@ -63,9 +64,16 @@ const HeaderWithButton = () => {
 const MainCard = () => {
   
   return (
-  <div className="max-w-md mx-auto bg-white">
-    <HeaderWithButton />
-    <Graph />
+  <div>
+    <div className='flex mt-5'>
+    <div>
+      <HeaderWithButton />
+      <Graph />
+    </div>
+    <div>
+      <WalletDataComponent />
+    </div>
+    </div>
   </div>
 );
 }

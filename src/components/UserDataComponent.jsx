@@ -19,18 +19,21 @@ function UserDataComponent() {
   };
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div className="p-6">
-          <h2 className="text-xl font-bold mb-4">User Data</h2>
+    <div className="container">
+      <div>
+        <div className="p-3">
           {userData ? (
             <div>
-              <p className="text-gray-500 text-sm">First Name</p>
-              <p className="text-lg font-semibold">{userData.first_name}</p>
-              <p className="text-gray-500 text-sm mt-4">Last Name</p>
-              <p className="text-lg font-semibold">{userData.last_name}</p>
-              <p className="text-gray-500 text-sm mt-4">Email</p>
-              <p className="text-lg font-semibold">{userData.email}</p>
+              <div className='flex flex-row space-x-2'>
+              <div className="inline-block relative rounded-full bg-gray-700 w-10 h-10 flex items-center justify-center mt-1">
+                <p className="text-lg text-white font-semibold">OJ</p>
+              </div>
+              <div>
+              <p className="text-lg font-bold">{userData.first_name} {userData.last_name}</p>
+              <p className="text-lg font-semibold"></p>
+              <p className="text-sm font-semibold">{userData.email}</p>
+              </div>
+              </div>
             </div>
           ) : (
             <p>Loading...</p>
