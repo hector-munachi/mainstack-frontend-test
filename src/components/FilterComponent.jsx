@@ -3,13 +3,13 @@
 const FilterComponent = () => {
   return (
     <div className="container p-4">
-       <div className="flex items-center justify-center space-x-2">
+      <div className="flex flex-wrap justify-center space-x-2 mb-5">
         {/* Pill-shaped badges */}
-        <div className="flex space-x-2 mb-5">
-          <span className="px-3 py-1 text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Today</span>
-          <span className="px-3 py-1 text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Last 7 days</span>
-          <span className="px-3 py-1 text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">This month</span>
-          <span className="px-3 py-1 text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Last 3 months</span>
+        <div className="flex flex-wrap justify-center space-x-2">
+          <span className="px-3 py-1 text-xs sm:text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Today</span>
+          <span className="px-3 py-1 text-xs sm:text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Last 7 days</span>
+          <span className="px-3 py-1 text-xs sm:text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">This month</span>
+          <span className="px-3 py-1 text-xs sm:text-sm font-bold bg-white border-2 border-gray-200 text-gray-900 rounded-full">Last 3 months</span>
         </div>
       </div>
       <div className="mb-5">

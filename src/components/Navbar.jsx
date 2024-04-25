@@ -50,7 +50,7 @@ const Navbar = () => {
       </div>
       {/* Expanded Navbar Links */}
       <div className={`lg:flex lg:justify-between ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="lg:flex lg:justify-between lg:mr-80 items-center lg:w-auto w-full">
+        <div className="lg:flex lg:justify-between lg:mr-60 items-center lg:w-auto w-full">
           {/* Links */}
             <a href="#" className="text-black flex items-center ml-4">
               <svg

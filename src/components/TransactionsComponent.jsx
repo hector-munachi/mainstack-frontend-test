@@ -41,9 +41,9 @@ function TransactionsComponent() {
   }
 
   return (
-    <div className="container mx-auto mt-10 mb-10">
-      <div className='flex flex-row justify-between'>
-        <div>
+    <div className="container mt-5 mb-10">
+      <div className='flex flex-col justify-between sm:flex-row'>
+        <div className="mb-4 sm:mb-0">
           <h2 className="text-lg font-bold mt-5">7 Transactions</h2>
           <h3 className="text-xs font-semibold mr-2 text-gray-400">Your transactions for the last 7 days</h3>
         </div>
@@ -65,43 +65,45 @@ function TransactionsComponent() {
       <hr className="border border-gray-200 w-full mt-3" />
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className='flex flex-row justify-center'>
-        <h2 className="text-lg font-bold absolute top-0 left-0 p-3">Filter</h2>
-        <button onClick={toggleSidebar} className="close-btn absolute top-0 right-0 p-3">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
-        </button>
+          <h2 className="text-lg font-bold absolute top-0 left-0 p-3">Filter</h2>
+          <button onClick={toggleSidebar} className="close-btn absolute top-0 right-0 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
         {/* Your sidebar content goes here */}
-        <FilterComponent/>
+        <FilterComponent />
       </div>
-      <table className="min-w-full">
-        <tbody className="bg-white">
-          {transactions.map((transaction, index) => (
-            <tr key={index} className='bg-white'>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 h-10 w-10">
-                    <div className="flex items-center justify-center h-8 w-8 rounded-full bg-green-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25" />
-                    </svg>
+      <div className="table-container overflow-x-auto mt-4">
+        <table className="min-w-full">
+          <tbody className="bg-white">
+            {transactions.map((transaction, index) => (
+              <tr key={index} className='bg-white'>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 h-10 w-10">
+                      <div className="flex items-center justify-center h-8 w-8 rounded-full bg-green-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-sm font-medium text-gray-900">{transaction.metadata?.product_name}</div>
+                      <div className="text-xs text-gray-500">{transaction.metadata?.name}</div>
                     </div>
                   </div>
-                  <div className="ml-4">
-                    <div className="text-sm font-medium text-gray-900">{transaction.metadata?.product_name}</div>
-                    <div className="text-xs text-gray-500">{transaction.metadata?.name}</div>
-                  </div>
-                </div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm text-gray-900 font-bold">{transaction.amount}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{transaction.date}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900 font-bold">{transaction.amount}</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{transaction.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
