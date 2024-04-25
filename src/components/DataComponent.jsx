@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+// TEST COMPONENT TO FETCH THE DATA COMING FROM THE API AND VIEW THE STRUCTURE
+
 function DataComponent() {
   const [userData, setUserData] = useState(null);
   const [walletData, setWalletData] = useState(null);
