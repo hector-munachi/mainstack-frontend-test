@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-family: 'Duru Sans', sans-serif;
+}
+
 .sidebar {
   width: 0;
   position: fixed;
