@@ -3,7 +3,9 @@ import FilterComponent from './FilterComponent';
 
 function TransactionsComponent() {
   const [transactions, setTransactions] = useState([]);
-  const [sidebarOpen, setSidebarOpen] = useState(false); // State to manage sidebar open/close
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const apiUrl = 'https://fe-task-api.mainstack.io';
 
   useEffect(() => {
@@ -13,17 +15,30 @@ function TransactionsComponent() {
   const fetchTransactions = async () => {
     try {
       const response = await fetch(`${apiUrl}/transactions`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch transactions');
+      }
       const data = await response.json();
       setTransactions(data);
+      setLoading(false);
     } catch (error) {
+      setError(error.message);
+      setLoading(false);
       console.error('Error fetching transactions:', error);
     }
   };
 
-  // Function to toggle sidebar open/close
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500 font-bold">{error}</div>;
+  }
 
   return (
     <div className="container mx-auto mt-10 mb-10">

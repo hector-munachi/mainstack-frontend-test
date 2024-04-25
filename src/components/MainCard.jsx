@@ -24,6 +24,8 @@ const Graph = () => (
 // Header with Button Component
 const HeaderWithButton = () => {
   const [walletData, setWalletData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const apiUrl = 'https://fe-task-api.mainstack.io';
 
   useEffect(() => {
@@ -33,13 +35,26 @@ const HeaderWithButton = () => {
   const fetchWalletData = async () => {
     try {
       const response = await fetch(`${apiUrl}/wallet`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch wallet data');
+      }
       const data = await response.json();
       setWalletData(data);
+      setLoading(false);
     } catch (error) {
+      setError(error.message);
+      setLoading(false);
       console.error('Error fetching wallet data:', error);
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500 font-bold">{error}</div>;
+  }
   
  return (
   

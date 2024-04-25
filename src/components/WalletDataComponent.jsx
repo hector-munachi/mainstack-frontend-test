@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function WalletDataComponent() {
   const [walletData, setWalletData] = useState(null);
+  const [error, setError] = useState(null);
   const apiUrl = 'https://fe-task-api.mainstack.io';
 
   useEffect(() => {
@@ -11,16 +12,24 @@ function WalletDataComponent() {
   const fetchWalletData = async () => {
     try {
       const response = await fetch(`${apiUrl}/wallet`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
       const data = await response.json();
       setWalletData(data);
     } catch (error) {
+      setError(error.message);
       console.error('Error fetching wallet data:', error);
     }
   };
 
+  if (error) {
+    return <div className="text-red-500 font-bold">{error}</div>;
+  }
+
   return (
     <div className="lg:px-60 sm:px-4 sm:mt-5 md:mt-5">
-      {walletData && (
+      {walletData ? (
         <div>
           <div className="mb-8">
             <div className='flex flex-row justify-between'>
@@ -59,6 +68,8 @@ function WalletDataComponent() {
             <h1 className="text-lg font-bold">USD {walletData.pending_payout}</h1>
           </div>
         </div>
+      ) : (
+        <div>Loading...</div>
       )}
     </div>
   );
