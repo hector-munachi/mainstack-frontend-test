@@ -47,18 +47,21 @@ function TransactionsComponent() {
           </button>
         </div>
       </div>
-      <hr className="border border-gray-300 w-full mt-3" />
+      <hr className="border border-gray-200 w-full mt-3" />
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+        <div className='flex flex-row justify-center'>
+        <h2 className="text-lg font-bold absolute top-0 left-0 p-3">Filter</h2>
         <button onClick={toggleSidebar} className="close-btn absolute top-0 right-0 p-3">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
         </button>
+        </div>
         {/* Your sidebar content goes here */}
         <FilterComponent/>
       </div>
-      <table className="min-w-full divide-y divide-gray-200">
-        <tbody className="bg-white divide-y divide-gray-200">
+      <table className="min-w-full">
+        <tbody className="bg-white">
           {transactions.map((transaction, index) => (
             <tr key={index} className='bg-white'>
               <td className="px-6 py-4 whitespace-nowrap">
