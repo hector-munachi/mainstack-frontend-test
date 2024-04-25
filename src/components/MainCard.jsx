@@ -80,7 +80,7 @@ const MainCard = () => {
   
   return (
   <div>
-    <div className='flex mt-5'>
+    <div className='flex space-x-5 mt-5'>
     <div>
       <HeaderWithButton />
       <Graph />
