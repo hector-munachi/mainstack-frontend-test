@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import FilterComponent from './FilterComponent';
 
 function TransactionsComponent() {
   const [transactions, setTransactions] = useState([]);
@@ -25,7 +26,7 @@ function TransactionsComponent() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-10 mb-10">
       <div className='flex flex-row justify-between'>
         <div>
           <h2 className="text-lg font-bold mt-5">7 Transactions</h2>
@@ -54,6 +55,7 @@ function TransactionsComponent() {
         </svg>
         </button>
         {/* Your sidebar content goes here */}
+        <FilterComponent/>
       </div>
       <table className="min-w-full divide-y divide-gray-200">
         <tbody className="bg-white divide-y divide-gray-200">
@@ -63,9 +65,9 @@ function TransactionsComponent() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0 h-10 w-10">
                     <div className="flex items-center justify-center h-8 w-8 rounded-full bg-green-200">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25" />
+                    </svg>
                     </div>
                   </div>
                   <div className="ml-4">
