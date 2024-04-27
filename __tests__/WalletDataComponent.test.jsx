@@ -3,7 +3,7 @@
 
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Import Jest DOM extension matchers
-import WalletDataComponent from './WalletDataComponent';
+import WalletDataComponent from '../src/components/WalletDataComponent';
 
 // Mock the fetch function to simulate API calls
 jest.mock('node-fetch', () => require('fetch-mock-jest').sandbox());
